@@ -5,4 +5,4 @@ workflows:
   print_and_parse_report:
     jobs:
       - infracost/run-infracost-report:
-          terraform_file_directory: aws/
+          terraform_file_directory: aws
