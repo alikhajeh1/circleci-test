@@ -4,6 +4,11 @@ orbs:
     jobs:
       diff:
         executor: infracost/infracost:latest
+        parameters:
+          tfdir:
+            type: string
+            default: .
+            description: The root directory of your terraform file
         steps:
           - checkout
           - run: infracost --tfdir <<parameters.tfdir>>
@@ -12,3 +17,4 @@ workflows:
   main:
     jobs:
       - infracost/diff
+        tfdir: aws
