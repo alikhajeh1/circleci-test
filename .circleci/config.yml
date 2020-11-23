@@ -11,10 +11,9 @@ orbs:
             description: The root directory of your terraform file
         steps:
           - checkout
-          - run: infracost --tfdir <<parameters.tfdir>>
+          - run: infracost --tfdir aws
 
 workflows:
   main:
     jobs:
       - infracost/diff
-          tfdir: "aws"
