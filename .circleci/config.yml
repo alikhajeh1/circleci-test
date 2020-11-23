@@ -2,5 +2,5 @@ version: 2.1
 orbs:
   infracost: infracost/infracost@dev:alpha
 jobs:
-  - infracost:
-      tfdir: aws
+  infracost:
+    tfdir: aws
