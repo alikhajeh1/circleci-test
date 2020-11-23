@@ -4,5 +4,5 @@ orbs:
 workflows:
   infracost:
     jobs:
-      - infracost/run_infracost:
+      - infracost:
           tfdir: aws
