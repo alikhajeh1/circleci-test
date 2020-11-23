@@ -3,7 +3,8 @@ orbs:
   infracost:
     jobs:
       diff:
-        executor: infracost/infracost:latest
+        docker:
+          - image: infracost/infracost:latest
         parameters:
           tfdir:
             type: string
