@@ -17,4 +17,4 @@ workflows:
   main:
     jobs:
       - infracost/diff
-          tfdir: aws
+          tfdir: "aws"
