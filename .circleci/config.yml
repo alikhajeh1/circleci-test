@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   infracost: infracost/infracost@dev:alpha
 workflows:
-  print_and_parse_report:
+  infracost:
     jobs:
-      - infracost/run-infracost-report:
-          terraform_file_directory: aws
+      - infracost/run_infracost:
+          tfdir: aws
