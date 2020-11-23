@@ -13,7 +13,6 @@ orbs:
         steps:
           - checkout
           - run: infracost --tfdir << parameters.tfdir >>
-          - run: git fetch origin master
           - run: git switch master
           - run: infracost --tfdir << parameters.tfdir >>
 
