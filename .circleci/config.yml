@@ -4,7 +4,7 @@ orbs:
     jobs:
       diff:
         docker:
-          - image: infracost/infracost:latest
+          - image: infracost/infracost:test
         parameters:
           tfdir:
             type: string
