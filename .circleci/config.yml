@@ -12,9 +12,7 @@ orbs:
             description: The root directory of your terraform file
         steps:
           - checkout
-          - run: infracost --tfdir << parameters.tfdir >>
-          - run: git switch main
-          - run: infracost --tfdir << parameters.tfdir >>
+          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" 1 ""
 
 workflows:
   main:
