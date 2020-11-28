@@ -1,25 +1,8 @@
 version: 2.1
 orbs:
-  infracost:
-    jobs:
-      diff:
-        docker:
-          - image: infracost/infracost:test
-        parameters:
-          tfdir:
-            type: string
-            default: .
-            description: The root directory of your terraform file
-          percentage_threshold:
-            type: string
-            default: "0"
-            description: percentage threshold
-        steps:
-          - checkout
-          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" << parameters.percentage_threshold >> ""
-
+  infracost: infracost/infracost@0.1.0
 workflows:
   main:
     jobs:
-      - infracost/diff:
+      - infracost/infracost:
           tfdir: aws
