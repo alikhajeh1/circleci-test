@@ -12,7 +12,7 @@ orbs:
             description: The root directory of your terraform file
         steps:
           - checkout
-          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" 1 ""
+          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" "" ""
 
 workflows:
   main:
