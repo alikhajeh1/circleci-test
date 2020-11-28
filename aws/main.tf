@@ -44,3 +44,4 @@ data "infracost_aws_lambda_function" "hello_world" {
   monthly_requests { value = 100000000 }
   average_request_duration { value = 250 } # <<<<< Try changing this to 100 (milliseconds) to compare costs
 }
+
