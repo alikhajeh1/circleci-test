@@ -36,7 +36,7 @@ orbs:
             type: string
         steps:
           - checkout
-          - run: /scripts/ci/diff.sh << parameters.tfjson >> << parameters.tfplan >> << parameters.use_tfstate >> << parameters.tfdir >> << parameters.tfflags >> << parameters.percentage_threshold >> << parameters.pricing_api_endpoint >>
+          - run: /scripts/ci/diff.sh
 
 workflows:
   main:
