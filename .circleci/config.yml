@@ -6,17 +6,37 @@ orbs:
         docker:
           - image: infracost/infracost:test
         parameters:
+          tfjson:
+            description: Path to Terraform plan JSON file.
+            default: ""
+            type: string
+          tfplan:
+            description: Path to Terraform plan file relative to 'tfdir'. Requires 'tfdir' to be set.
+            default: ""
+            type: string
+          use_tfstate:
+            description: Use Terraform state instead of generating a plan.
+            default: "false"
+            type: string
           tfdir:
+            description: Path to the Terraform code directory (default is current working directory).
+            default: "."
             type: string
-            default: .
-            description: The root directory of your terraform file
+          tfflags:
+            description: Flags to pass to the 'terraform plan' command.
+            default: ""
+            type: string
           percentage_threshold:
-            type: string
+            description: The absolute percentage threshold that triggers a pull request comment with the diff. Defaults to 0, meaning that a comment is posted if the cost estimate changes. For example, set to 5 to post a comment if the cost estimate changes by plus or minus 5%.
             default: "0"
-            description: percentage threshold
+            type: string
+          pricing_api_endpoint:
+            description: Specify an alternate price list API URL (default is https://pricing.api.infracost.io).
+            default: ""
+            type: string
         steps:
           - checkout
-          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" << parameters.percentage_threshold >> ""
+          - run: /scripts/ci/diff.sh << parameters.tfjson >> << parameters.tfplan >> << parameters.use_tfstate >> << parameters.tfdir >> << parameters.tfflags >> << parameters.percentage_threshold >> << parameters.pricing_api_endpoint >>
 
 workflows:
   main:
