@@ -10,9 +10,13 @@ orbs:
             type: string
             default: .
             description: The root directory of your terraform file
+          percentage_threshold:
+            type: string
+            default: 0
+            description: percentage threshold
         steps:
           - checkout
-          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" "" ""
+          - run: /scripts/ci/diff.sh "" "" "" << parameters.tfdir >> "" << parameters.percentage_threshold >> ""
 
 workflows:
   main:
