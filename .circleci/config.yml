@@ -4,7 +4,7 @@ orbs:
 workflows:
   main:
     jobs:
-      infracost/infracost:
-        tfdir: aws
-      environment:
-        TF_WORKSPACE: staging
+      - infracost/infracost:
+          tfdir: aws
+        environment:
+          TF_WORKSPACE: staging
