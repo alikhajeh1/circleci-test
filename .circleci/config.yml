@@ -6,5 +6,3 @@ workflows:
     jobs:
       - infracost/infracost:
           tfdir: aws
-    environment:
-      TF_WORKSPACE: staging
