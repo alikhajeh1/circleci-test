@@ -5,5 +5,5 @@ orbs:
 jobs:
   infracost/infracost:
     tfdir: aws
-  environment:
-    TF_WORKSPACE: staging
+    environment:
+      TF_WORKSPACE: staging
